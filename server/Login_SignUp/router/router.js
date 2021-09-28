@@ -7,10 +7,19 @@ router.get('/signup',login_signup_controller.get_signup);
 
 router.post('/signup',login_signup_controller.post_signup);
 
-router.get('/login',login_signup_controller.get_login);
+router.post('/signup/worker',login_signup_controller.post_signup_worker);
 
-router.post('/login',login_signup_controller.post_login);
+router.get('/login/customer',login_signup_controller.get_login_customer);
 
-router.get('/logout',login_signup_controller.get_logout);
+router.post('/login/customer',login_signup_controller.post_login_customer);
+
+router.post('/login/admin',login_signup_controller.post_login_admin);
+
+router.post('/login/washer',login_signup_controller.post_login_washer);
+
+router.post('/signup/admin',login_signup_controller.post_signup_admin);
+
+router.get('/logout/cusotmer',login_signup_controller.get_logout_cust);
+
 
 module.exports=router;

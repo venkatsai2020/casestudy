@@ -1,17 +1,16 @@
 let express=require('express');
-let customer_schema_model=require('../db_cust/customer_db.js');
-let axios=require('axios');
 let router=express.Router();
+let controller=require('../controller/controller.js');
 
-router.get('/',async (req,res)=>{
-    let data=await customer_schema_model.find({});
-    res.send(data);
-});
+router.get('/',controller.get_customers);
 
-router.post('/',async (req,res)=>{
-    console.log(req.body);
-    let data=await customer_schema_model.create(req.body);
-    res.send(data);
-});
+router.post('/',controller.post_customer);
+
+//router.put('/:id',controller.put_customer);
+
+router.get('/:id',controller.get_customer_id);
+
+//router.delete('/:id',controller.delete_customer);
+
 
 module.exports=router;
